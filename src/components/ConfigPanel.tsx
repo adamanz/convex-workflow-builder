@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { X, Save, Trash2 } from 'lucide-react'
 import { cn } from '../lib/utils'
 import type { NodeType, ActionNodeConfig, ConditionNodeConfig, DelayNodeConfig, AINodeConfig } from '../types/workflow'
@@ -19,17 +19,10 @@ interface ConfigPanelProps {
 }
 
 export function ConfigPanel({ node, onUpdate, onDelete, onClose }: ConfigPanelProps) {
-  const [label, setLabel] = useState('')
-  const [description, setDescription] = useState('')
-  const [config, setConfig] = useState<Record<string, unknown>>({})
-
-  useEffect(() => {
-    if (node) {
-      setLabel(node.data.label)
-      setDescription(node.data.description || '')
-      setConfig(node.data.config || {})
-    }
-  }, [node])
+  // Use node.id as key to reset state when node changes
+  const [label, setLabel] = useState(node?.data.label ?? '')
+  const [description, setDescription] = useState(node?.data.description ?? '')
+  const [config, setConfig] = useState<Record<string, unknown>>(node?.data.config ?? {})
 
   if (!node) return null
 

@@ -173,16 +173,3 @@ export const AINode = memo((props: NodeProps) => (
   <BaseNode {...props} type="ai" />
 ))
 AINode.displayName = 'AINode'
-
-export const nodeTypes = {
-  start: StartNode,
-  end: EndNode,
-  action: ActionNode,
-  mutation: MutationNode,
-  query: QueryNode,
-  condition: ConditionNode,
-  delay: DelayNode,
-  parallel: ParallelNode,
-  loop: LoopNode,
-  ai: AINode,
-}

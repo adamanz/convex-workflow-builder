@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { ReactFlowProvider } from '@xyflow/react'
 import {
@@ -8,8 +8,8 @@ import {
   ConditionNode,
   DelayNode,
   AINode,
-  nodeTypes,
 } from './CustomNodes'
+import { nodeTypes } from './nodeTypes'
 
 // Wrapper component for ReactFlow context
 function TestWrapper({ children }: { children: React.ReactNode }) {
